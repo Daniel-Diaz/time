@@ -1,4 +1,5 @@
 {-# LANGUAGE Safe #-}
+{-# LANGUAGE DeriveGeneric #-}
 
 module Data.Time.Calendar.Week
     (
@@ -14,6 +15,7 @@ import Data.Ix
 import Data.Data
 import Control.DeepSeq
 import Data.Time.Calendar.Days
+import GHC.Generics (Generic)
 
 data DayOfWeek
     = Monday
@@ -23,7 +25,7 @@ data DayOfWeek
     | Friday
     | Saturday
     | Sunday
-    deriving (Eq, Show, Read, Data, Typeable, Ord, Ix)
+    deriving (Eq, Show, Read, Data, Typeable, Ord, Ix, Generic)
 
 instance NFData DayOfWeek where
     rnf Monday = ()
